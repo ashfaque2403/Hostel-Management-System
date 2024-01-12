@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 class="bg-white text-center mt-5 mb-5">Create Student Profile</h1>
+
+    {% if success  %}
+        <p></p>
+        <div class="text-center  mt-4 mb-5" >
+            <h1 class="display-5">User profile created successfully!</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center " style="margin-left:230px;">
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="row g-3  mx-auto">
+                    
+                    <div class="col-8">
+                        {% include "messages.html" %}
+                        <input name="name" type="text" class="form-control bg-light border-0" placeholder="Username" style="height: 55px;">
+                    </div> 
+                    <div class="col-8">
+                        <input name="email" type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;">
+                    </div>
+                    <div class="col-8">
+                        <input name="date_of_birth" type="date" class="form-control bg-light border-0" value="Date Of Birth" style="height: 55px;">
+                    </div>
+                    <div class="col-8">
+                        <input
+                            name="phone"
+                            type="tel"
+                            pattern="[0-9]{10}"
+                            class="form-control bg-light border-0"
+                            placeholder="Phone"
+                            style="height: 55px;"
+                            required
+                        />
+                        <!-- Adding a required attribute ensures that the user must enter a value -->
+                        <small class="form-text text-muted">Please enter a 10-digit phone number.</small>
+                    </div>
+                    <div class="col-8">
+                        <input name="address" type="text" class="form-control bg-light border-0" placeholder="Address" style="height: 55px;">
+                    </div>
+                    {% comment %} <div class="col-8">
+                        <input name="photo" type="file" class="form-control bg-light border-0" placeholder="" style="height: 55px;">
+                    </div> {% endcomment %}
+                    
+                    <div class="col-8">
+                        <button class="btn btn-primary w-100 py-3 mb-5" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% endblock  %}

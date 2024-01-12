@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    
+        <div class="container mt-4">
+            <div class="">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row g-3  " style="margin-left:230px;">
+                        <div class="col-8">
+                            {% include "messages.html" %}
+                            <input name="user" value="@{{request.user.username}}" type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;">
+                        </div>
+                        <div class="col-8">
+                            <input name="startdate" type="date" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;">
+                        </div>
+                        <div class="col-8">
+                            <input name="enddate" type="date" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;">
+                        </div>
+                        <div class="col-8">
+                            <textarea name="reason"  class="form-control bg-light border-0" placeholder="Type your reason..." style="height: 195px;"></textarea>
+                        </div>
+                        <div class="col-8">
+                            <button class="btn btn-primary w-100 py-3 mb-5" type="submit">Request</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+   
+    {% endblock  %}

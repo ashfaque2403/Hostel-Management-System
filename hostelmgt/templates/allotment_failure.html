@@ -1,0 +1,9 @@
+<!-- templates/allotment_failure.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2 class="bg-white text-center mt-5 ">Room Allotment Failed</h2>
+<p class="bg-white text-center mb-5 ">{{ error_message }}</p>
+<h6 class="display-8 text-center"><a href="{% url 'allot_room' %}" class="read-more-link ">Back to Allot Room</a></h6>
+{% endblock %}

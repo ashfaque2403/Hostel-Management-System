@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+        <div class="container  mt-2 mb-5" >
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Fees</li>
+                </ol>
+            </nav>
+            <h1 style="text-align: center;">Fee Status</h1>
+        
+
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr class="bg-primary">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Fees</th>
+                
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for view_fee_all in view_fees_all %}
+                <tr style="background-color:lightgrey;">
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.user.username|capfirst}}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.fee }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.status|capfirst }}</td>
+
+                    
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+        
+    
+   
+    {% endblock  %}

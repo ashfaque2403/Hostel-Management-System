@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+
+    <h2 style="font-family: Arial, sans-serif;">Complaints...</h2>
+
+    <table style="display: inline-table; border-collapse: collapse; margin-top: 20px; width: 100%;">
+        <thead >
+            <tr class="bg-primary">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; ">Name</th>
+                {% comment %} <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">User</th> {% endcomment %}
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; ">Subject</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for view in view_all %}
+                <tr style="background-color:lightgrey;">
+                    {% comment %} <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.user.username }}</td> {% endcomment %}
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.name|capfirst }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.subject }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+   
+    {% endblock  %}

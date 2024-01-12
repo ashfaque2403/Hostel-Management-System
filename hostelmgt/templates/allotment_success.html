@@ -1,0 +1,18 @@
+<!-- templates/allotment_success.html -->
+
+<!-- Add other details as needed -->
+<!-- templates/allotment_failure.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2></h2>
+<h2 class="bg-white text-center mt-5 ">Room Allotment Successful</h2>
+
+        {% if allotment %}
+        <p class="bg-white text-center  ">Room: {{ allotment.room.room_no }}</p>
+        <p class="bg-white text-center  ">Name: {{ allotment.user.username }}</p>
+        <h6 class="display-8 text-center"><a href="{% url 'allot_room' %}" class="read-more-link ">Back to Allot Room</a></h6>
+        {% endif %}
+        
+{% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+
+    <h2 style="font-family: Arial, sans-serif;">Leave...</h2>
+
+    <table style="display: inline-table; border-collapse: collapse; margin-top: 20px; width: 100%;">
+        <thead>
+            <tr class="bg-primary">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Start Date</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">End Date</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for view in leave %}
+                <tr style="background-color:lightgrey;">
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.user.username|capfirst }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.start_date }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.end_date }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view.reason }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+   
+    {% endblock  %}

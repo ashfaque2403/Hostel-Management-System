@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+        <div class="container  mt-2 mb-5" >
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Fees</li>
+                </ol>
+            </nav>
+            <h1 style="text-align: center;">Fee Status</h1>
+            {% comment %} <p>Total Fees: ${{ total_fees }}</p> {% endcomment %}
+            <p>Absents Count:{{ absents_count }}</p>
+           
+
+    <p>Absents Total Amount: Rs.{{ total_absent_money }}</p>
+
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Fees</th>
+                
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">After Deduction</th>
+                
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for view_fee in view_fees %}
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ request.user.username}}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee.fee }}</td>
+                    
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ finalize}}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee.status }}</td>
+                    {% comment %} <td style="border: 1px solid #ddd; padding: 8px; text-align: left;"><a class="btn btn-success">Pay</a></td> {% endcomment %}
+                    
+                </tr>
+            {% endfor %}
+                {% if request.user.is_view_fees_all %}
+            {% for view_fee_all in view_fees_all %}
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.user.username}}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.fee }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ view_fee_all.status }}</td>
+                    
+                    
+                </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+        </div>
+        
+    
+   
+    {% endblock  %}

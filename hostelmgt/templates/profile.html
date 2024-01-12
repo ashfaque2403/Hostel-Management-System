@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Create User Profile</h2>
+
+    
+        <p>User profile created successfully!</p>
+   
+    
+    {% if profiles.name %}
+    {% comment %} <h1 class="display-5 mb-4">{{profile.user.username}}</h1> {% endcomment %}
+    <h1 class="display-5 mb-4">{{profiles.name}}</h1>
+    {% endif %}
+    {% endblock  %}

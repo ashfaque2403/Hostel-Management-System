@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+        <div class="container  mt-5 mb-5" >
+            <h1 style="text-align: center;">Attendance Records</h1>
+
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr class="bg-primary">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Present</th>
+
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in allattendance %}
+                <tr style="background-color:lightgrey;">
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ student.user.username|capfirst }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ student.attendance_status }}</td>
+                   
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">{{ student.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+        
+    
+   
+    {% endblock  %}

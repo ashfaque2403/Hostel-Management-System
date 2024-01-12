@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-">
+            <div class="row gx-0 mb-3 mb-lg-0 ">
+                <div class="col-lg-5 my-lg-5 py-lg-5">
+                    <div class="bg-primary p-5 rounded" >
+                        <h1 class="display-5 mb-4">Welcome To Hostel</h1>
+                        <p>Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et, tempor sit sit diam amet et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor magna dolore erat amet </p>
+                        {% comment %} <a href="" class="btn btn-secondary rounded-pill py-md-3 px-md-5 mt-4">Contact Us</a> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-lg-7" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/building-for-hostels-apartments-3d-model-max-3ds.jpg' %}" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- About End -->
+{% if request.user.is_superuser %}
+
+{% else %}
+{% if user.username == 'warden' %}
+ <!-- Services Start -->
+ <div class="container-fluid py-5" id="fow">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">Services</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+        <div class="row gy-4 gx-3">
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-city"></i></div>
+                    </div>
+                    <h3 class="mt-5">Room Allot</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "allot_room" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-spray-can"></i></div>
+                    </div>
+                    <h3 class="mt-5">Fee Status</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "all-view-fee" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-spray-can"></i></div>
+                    </div>
+                    <h3 class="mt-5">Add Student</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "create_user_profile" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-spray-can"></i></div>
+                    </div>
+                    <h3 class="mt-5">Room Details</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "full-room" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-brush"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Attendance</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "view-attendance-all" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Complaints</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "view-complaints" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-brush"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Outing Request</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "view-leave" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">Change Password</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "change-password" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+
+{% else %}
+
+
+<div class="container-fluid py-5" id="fow">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">Services</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+        <div class="row gy-4 gx-3">
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-brush"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Rules</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "rules" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-spray-can"></i></div>
+                    </div>
+                    <h3 class="mt-5">Fee Status</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "view-fee" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">Send Complaints</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "complaint" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Profile</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "userprofile" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">View Attendance</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "view-attendance" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">Leave Request</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "leave-request" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pt-5">
+                <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-5 pt-0">
+                    <div class="service-icon p-3">
+                        <div><i class="fa fa-2x fa-paint-roller"></i></div>
+                    </div>
+                    <h3 class="mt-5">Change Password</h3>
+                    <a class="btn shadow-none text-secondary" href="{% url "change-password" %}">View Detail<i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+{% endif %}
+   
+
+{% endif %}
+
+ {% endblock %}

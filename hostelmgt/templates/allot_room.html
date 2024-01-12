@@ -1,0 +1,52 @@
+<!-- templates/allot_room.html -->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<div class="row mt-4 mb-4">
+    <h6 class="bg-white text-center ">Available Rooms</h6>
+    {% for room in available_rooms %}
+        <div class="col-md-2">
+            <div class="custom-box text-center bg-primary p-2 mt-2 mb-2">
+                <h2>{{ room.room_no }}</h2>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+<h1 class="bg-white text-center mt-5 ">Allot Rooms</h1>
+
+
+
+{% comment %} <form method="post" action="{% url 'allot_room' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Allot Room</button>
+  </form>
+   {% endcomment %}
+
+  <div class="container">
+    
+    <div class="d-flex justify-content-center align-items-center " style="margin-left:230px;">
+        <form method="post">
+            {% csrf_token %}
+            {% include "messages.html" %}
+            <div class="row g-3 mx-auto">
+                <div class="col-8">
+                    <input name="student_name" type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;">
+                </div> 
+                <div class="col-8">
+                    <input name="room_number" type="text" class="form-control bg-light border-0" placeholder="Room No" style="height: 55px;">
+                </div>
+                <div class="col-8">
+                    <button class="btn btn-primary w-100 py-3 mb-5" type="submit">Allot Room</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+  
+{% endblock %}
